@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Form Validation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="form-panel" aria-labelledby="form-title">
+        <div class="intro">
+          <p class="eyebrow">Account setup</p>
+          <h1 id="form-title">Create your profile</h1>
+          <p>Enter your details below. Validation runs as you type and when each field loses focus.</p>
+        </div>
+
+        <form id="signup-form" novalidate>
+          <div class="field" data-field="name">
+            <label for="name">Full name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              placeholder="Jordan Lee"
+              aria-describedby="name-error"
+              required
+            />
+            <p class="message" id="name-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field" data-field="email">
+            <label for="email">Email address</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="jordan@example.com"
+              aria-describedby="email-error"
+              required
+            />
+            <p class="message" id="email-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field" data-field="password">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              placeholder="At least 8 characters"
+              aria-describedby="password-error password-hint"
+              required
+            />
+            <div class="strength" aria-hidden="true">
+              <span></span>
+            </div>
+            <p class="hint" id="password-hint">Use uppercase, lowercase, a number, and a symbol.</p>
+            <p class="message" id="password-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field" data-field="confirmPassword">
+            <label for="confirm-password">Confirm password</label>
+            <input
+              id="confirm-password"
+              name="confirmPassword"
+              type="password"
+              autocomplete="new-password"
+              placeholder="Repeat your password"
+              aria-describedby="confirm-password-error"
+              required
+            />
+            <p class="message" id="confirm-password-error" aria-live="polite"></p>
+          </div>
+
+          <label class="check-row" for="terms">
+            <input id="terms" name="terms" type="checkbox" aria-describedby="terms-error" required />
+            <span>I agree to the terms and privacy policy.</span>
+          </label>
+          <p class="message check-message" id="terms-error" aria-live="polite"></p>
+
+          <button type="submit">Create account</button>
+          <p class="success" id="success-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
